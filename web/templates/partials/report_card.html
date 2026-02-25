@@ -1,0 +1,15 @@
+<a href="/reports/{{ report.id }}"
+   class="block bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md hover:border-indigo-200 transition">
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <span class="text-lg font-semibold text-gray-800">{{ report.report_date }}</span>
+            {% if report.report_type == 'evening' %}
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-700 font-medium">夕方</span>
+            {% else %}
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 font-medium">朝</span>
+            {% endif %}
+        </div>
+        <span class="text-sm text-gray-400">{{ report.activity_count }} activities</span>
+    </div>
+    <p class="text-sm text-gray-600 mt-2 line-clamp-2">{{ report.content[:200] }}</p>
+</a>

@@ -1,0 +1,11 @@
+timezone: "Asia/Tokyo"
+
+reports:
+  evening:
+    hour: 21
+    minute: 0
+    description: "当日の業務報告を生成"
+  morning:
+    hour: 7
+    minute: 0
+    description: "前日サマリー + 本日予定を生成"

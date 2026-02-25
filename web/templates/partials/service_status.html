@@ -1,0 +1,11 @@
+<div class="flex items-center space-x-2">
+    {% if connected %}
+    <span class="text-sm text-green-600 flex items-center">
+        <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span>接続済み
+    </span>
+    {% else %}
+    <span class="text-sm text-gray-400 flex items-center">
+        <span class="w-2 h-2 bg-gray-300 rounded-full mr-1.5"></span>未接続
+    </span>
+    {% endif %}
+</div>

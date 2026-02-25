@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}新規登録 - DailyReport{% endblock %}
+{% block nav %}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center -mt-8">
+    <div class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-indigo-600">DailyReport</h1>
+            <p class="text-gray-500 mt-2">アカウント作成</p>
+        </div>
+
+        {% if flash_message %}
+        <div class="mb-4 p-3 rounded-lg text-sm
+            {% if flash_type == 'error' %}bg-red-50 text-red-700{% else %}bg-green-50 text-green-700{% endif %}">
+            {{ flash_message }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="/register" class="space-y-5">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">メールアドレス</label>
+                <input type="email" name="email" required
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                    placeholder="you@example.com">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">表示名</label>
+                <input type="text" name="display_name" required
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                    placeholder="山田 太郎">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">パスワード</label>
+                <input type="password" name="password" required minlength="6"
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                    placeholder="6文字以上">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">パスワード（確認）</label>
+                <input type="password" name="password_confirm" required minlength="6"
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                    placeholder="もう一度入力">
+            </div>
+            <button type="submit"
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-lg font-medium transition">
+                アカウント作成
+            </button>
+        </form>
+
+        <p class="text-center text-sm text-gray-500 mt-6">
+            既にアカウントをお持ちの方は
+            <a href="/login" class="text-indigo-600 hover:text-indigo-700 font-medium">ログイン</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
